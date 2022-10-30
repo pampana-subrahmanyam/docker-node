@@ -26,3 +26,19 @@ docker exec -it d3139e7d462b /bin/bash
 docker kill <container id>
 You can get the container id from the docker ps command
 
+# Docker Compose
+1.You can run the application without docker compose also.
+2.With Docker Compose, we no  need to remember very long commands to build , run or config  containers.
+3.You can run docker-compose build and docker-compose up, your application will run effortlessly.
+
+The first directive in the web service is to build the image based on our Dockerfile. This will recreate the image we used before, but it will now be named according to the project we are in, nodejsexpresstodoapp. After that, we are giving the service some specific instructions on how it should operate:
+
+    command: npm run dev - Once the image is built, and the container is running, the npm run dev command will start the application.
+
+    volumes: - This section will mount paths between the host and the container.
+
+    .:/usr/app/ - This will mount the root directory to our working directory in the container.
+
+    /usr/app/node_modules - This will mount the node_modules directory to the host machine using the buildtime directory.
+
+    
